@@ -13,5 +13,10 @@ namespace MonoGameEngine.Levels
 {
     class Level1 : BaseState
     {
+
+        public Level1()
+        {
+            AddObjectToHandler("Player", new Player());
+        }
     }
 }

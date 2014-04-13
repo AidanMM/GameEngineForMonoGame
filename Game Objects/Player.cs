@@ -10,8 +10,12 @@ using MonoGameEngine.Engine_Components;
 
 namespace MonoGameEngine.Game_Objects
 {
-    class Player
+    class Player : GameObject
     {
-
+        public Player() : base()
+        {
+           animationList = Game1.ANIMATION_SET_DICTIONARY["default"];
+           
+        }   
     }
 }

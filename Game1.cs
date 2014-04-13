@@ -139,6 +139,7 @@ namespace MonoGameEngine
             // TODO: Add your initialization logic here
             IMAGE_DICTIONARY = new Dictionary<string, Texture2D>();
             ANIMATION_DICTIONARY = new Dictionary<string, List<Texture2D>>();
+            ANIMATION_SET_DICTIONARY = new Dictionary<string, List<List<Texture2D>>>();
             CAMERA_DISPLACEMENT = new Vector2(0, 0);
 
             basicEffect = new BasicEffect(graphics.GraphicsDevice);
@@ -180,6 +181,7 @@ namespace MonoGameEngine
             //IMAGE_DICTIONARY.Add("NameKey", Content.Load<Texture2D>{"FileName"));
             //The file name should have no file extension
             IMAGE_DICTIONARY.Add("default", Content.Load<Texture2D>("BlueBeat"));
+            DEFAULT_TEXTURE = Content.Load<Texture2D>("BlueBeat");
 
             #endregion
 
@@ -189,12 +191,12 @@ namespace MonoGameEngine
             //To load animations into the game and add them to the Animation_Dictionary, you can add each one by hand or try
             //ANIMATION_DICTIONARY.Add("NameKey", A_CreateAnimation("FileName1", "FileName2", "FileName3", "FileName4", "FileName4"));
             //Any ammount of paramaters can be used, leave out file extensions
-
+            ANIMATION_DICTIONARY.Add("default", A_CreateAnimation("BlueBeat"));
             #endregion
 
             #region Load Animation sets here
             //Call A_CreateAnimationSet and pass in the animations you would like to use
-
+            ANIMATION_SET_DICTIONARY.Add("default" ,A_CreateAnimationSet(ANIMATION_DICTIONARY["default"]));
             #endregion
 
             OBJECT_HANDLER.ChangeState(new Level1());
